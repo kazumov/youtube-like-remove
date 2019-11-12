@@ -214,7 +214,7 @@ if __name__ == "__main__":
         # login
         try:
             await doLogin(
-                User(r"ruben.kazumov.resume@gmail.com", r"flksjhdlkf74893jlkj"),
+                User("LOGIN", "PASSWORD"),
                 browser,
                 page,
             )
