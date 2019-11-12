@@ -1,6 +1,6 @@
 # Remove Liked Video From YouTube Channel
 
-The script removs the last liked video from the private playlist on YouTube.
+The script imitates the application user activity. It logins to the YouTube application with the user LOGIN and PASSWORD, navigates to the list of liked videos and removes tope one.
 
 ## Dependencies
 
@@ -11,12 +11,12 @@ The application requires:
 
 ## Run
 ```console
-chmod +x ./likes.py
+chmod +x ./likes.py LOGIN PASSWORD
 ./likes.py 
 ```
 
 or
 
 ```console
-python3 likes.py 
+python3 likes.py LOGIN PASSWORD
 ```
