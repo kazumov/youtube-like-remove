@@ -6,6 +6,8 @@ from __future__ import annotations
 
 __description__ = "Remove all youtube likes"
 __copyright__ = "2019 Ruben R. Kazumov"
+__version__ = [1, 2]
+__stage__ = "production"
 
 import os, sys
 from typing import Any
@@ -211,13 +213,23 @@ if __name__ == "__main__":
         browser = await launch(headless=True)
         page = await browser.newPage()
 
+        try:
+            login = sys.argv[1]
+            password = sys.argv[2]
+        except:
+            print(
+                """Wrong script call.
+Usage:
+    $python3 args.py LOGIN PASSWORD
+or
+    ./args.py LOGIN PASSWORD"""
+            )
+            await browser.close()
+            return
+
         # login
         try:
-            await doLogin(
-                User("LOGIN", "PASSWORD"),
-                browser,
-                page,
-            )
+            await doLogin(User(login, password), browser, page)
         except Exception as e:
             Console.error("Inpossible to login:")
             print(e)
